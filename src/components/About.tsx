@@ -8,7 +8,7 @@ export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const { data } = useAdmin();
-  const { profile, experiences } = data;
+  const { profile, about, experiences } = data;
 
   const currentJob = experiences[0];
 
@@ -30,12 +30,10 @@ export function About() {
               <div>
                 <h3 className="text-2xl mb-6 flex items-center gap-3">
                   <GraduationCap className="w-6 h-6 text-primary" />
-                  Education & Background
+                  {about.educationTitle}
                 </h3>
-                <p className="text-muted-foreground mb-6">
-                  I&apos;m currently pursuing my degree in <span className="text-foreground">Computer Engineering</span> at
-                  the <span className="text-foreground">University of Jaffna</span>, where I&apos;ve developed a strong
-                  foundation in software engineering, cloud computing, and DevOps practices.
+                <p className="text-muted-foreground mb-6 whitespace-pre-line">
+                  {about.educationDescription}
                 </p>
                 <div className="flex items-start gap-3 text-muted-foreground mb-4">
                   <MapPin className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
@@ -46,14 +44,11 @@ export function About() {
               <div>
                 <h3 className="text-2xl mb-6 flex items-center gap-3">
                   <Briefcase className="w-6 h-6 text-secondary" />
-                  Professional Experience
+                  {about.professionalTitle}
                 </h3>
                 {currentJob ? (
-                  <p className="text-muted-foreground mb-6">
-                    I&apos;m currently working as a <span className="text-foreground">{currentJob.title}</span> at
-                    <span className="text-foreground"> {currentJob.company}</span>, where I&apos;ve gained hands-on experience
-                    in building and optimizing CI/CD pipelines, containerizing applications with Docker, and managing
-                    cloud infrastructure.
+                  <p className="text-muted-foreground mb-6 whitespace-pre-line">
+                    {about.professionalDescription}
                   </p>
                 ) : (
                   <p className="text-muted-foreground mb-6">
@@ -68,10 +63,8 @@ export function About() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-border">
-              <p className="text-muted-foreground">
-                Through competitive programming and industry experience, I&apos;ve developed strong problem-solving
-                skills and a deep understanding of software development best practices. I&apos;m committed to continuous
-                learning and staying updated with the latest DevOps tools and cloud technologies.
+              <p className="text-muted-foreground whitespace-pre-line">
+                {about.closingStatement}
               </p>
             </div>
           </div>

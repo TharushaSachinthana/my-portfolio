@@ -14,8 +14,10 @@ import {
     Upload,
     Download,
     RotateCcw,
+    Info,
 } from 'lucide-react';
 import { ProfileEditor } from './ProfileEditor';
+import { AboutEditor } from './AboutEditor';
 import { SkillsEditor } from './SkillsEditor';
 import { ExperienceEditor } from './ExperienceEditor';
 import { ProjectsEditor } from './ProjectsEditor';
@@ -27,6 +29,7 @@ import { useRef } from 'react';
 
 const sections = [
     { id: 'profile', label: 'Profile & Bio', icon: User },
+    { id: 'about', label: 'About Me', icon: Info },
     { id: 'skills', label: 'Skills', icon: Code },
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'projects', label: 'Projects', icon: FolderOpen },
@@ -68,6 +71,8 @@ export function AdminPanel() {
         switch (activeSection) {
             case 'profile':
                 return <ProfileEditor />;
+            case 'about':
+                return <AboutEditor />;
             case 'skills':
                 return <SkillsEditor />;
             case 'experience':

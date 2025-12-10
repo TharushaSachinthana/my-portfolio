@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Download } from 'lucide-react';
+import { useAdmin } from './admin/AdminContext';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -16,6 +17,8 @@ const navLinks = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const { data } = useAdmin();
+  const { cvFiles } = data;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,18 +43,21 @@ export function Navigation() {
   }, []);
 
   const handleDownloadCV = () => {
-    // Create a simple CV download - you can replace this with an actual PDF file
-    const link = document.createElement('a');
-    link.href = '#'; // Replace with actual CV PDF URL
-    link.download = 'Tharusha_Thilakarathna_CV.pdf';
-    alert('CV download functionality ready - please add your CV PDF file path');
+    const activeCV = cvFiles.find((cv) => cv.isActive);
+    if (activeCV) {
+      const link = document.createElement('a');
+      link.href = activeCV.url;
+      link.download = activeCV.name;
+      link.click();
+    } else {
+      alert('No CV available for download');
+    }
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-card py-4' : 'bg-transparent py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-card py-4' : 'bg-transparent py-6'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -66,11 +72,10 @@ export function Navigation() {
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm transition-colors hover:text-primary ${
-                activeSection === link.href.substring(1)
+              className={`text-sm transition-colors hover:text-primary ${activeSection === link.href.substring(1)
                   ? 'text-primary'
                   : 'text-muted-foreground'
-              }`}
+                }`}
             >
               {link.name}
             </a>
