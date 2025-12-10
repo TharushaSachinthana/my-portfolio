@@ -1,42 +1,39 @@
 import { motion } from 'motion/react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { ExternalLink } from 'lucide-react';
-import { ProjectModal } from './ProjectModal';
 import { useAdmin } from './admin/AdminContext';
-import type { Project } from '../data/portfolioData';
+import { Link } from 'react-router-dom';
 
 export function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { data } = useAdmin();
   const { projects } = data;
 
   return (
-    <>
-      <section id="projects" className="py-20 px-6" ref={ref}>
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl text-center mb-4">
-              Featured <span className="text-primary">Projects</span>
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12 rounded-full"></div>
+    <section id="projects" className="py-20 px-6" ref={ref}>
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl text-center mb-4">
+            Featured <span className="text-primary">Projects</span>
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12 rounded-full"></div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer group"
-                  onClick={() => setSelectedProject(project)}
-                >
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer group"
+              >
+                <Link to={`/project/${project.id}`} target="_blank" rel="noopener noreferrer" className="block h-full">
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={project.images[0] || 'https://images.unsplash.com/photo-1667264501379-c1537934c7ab?w=800'}
@@ -76,25 +73,23 @@ export function Projects() {
                       )}
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center mt-8"
-            >
-              <p className="text-muted-foreground">
-                More projects coming soon! Click on a project card to view detailed information.
-              </p>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-8"
+          >
+            <p className="text-muted-foreground">
+              More projects coming soon! Click on a project card to view detailed information.
+            </p>
           </motion.div>
-        </div>
-      </section>
-
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-    </>
+        </motion.div>
+      </div>
+    </section>
   );
 }
