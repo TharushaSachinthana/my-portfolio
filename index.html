@@ -34,6 +34,92 @@
 
   <!-- Theme -->
   <meta name="theme-color" content="#0f172a" />
+
+  <!-- Structured Data (JSON-LD) - Invisible to users, helps Google show rich results -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://tharusha-portfolio.vercel.app/#person",
+          "name": "Tharusha Sachinthana Thilakarathna",
+          "alternateName": "Tharusha Sachinthana",
+          "jobTitle": "DevOps Engineer",
+          "description": "DevOps Engineer specializing in CI/CD pipelines, cloud infrastructure, containerization, and infrastructure as code.",
+          "url": "https://tharusha-portfolio.vercel.app/",
+          "image": "https://tharusha-portfolio.vercel.app/profile.png",
+          "email": "mailto:thilakarathna.mkts@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chilaw",
+            "addressCountry": "LK"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Jaffna"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Zebra Technologies"
+          },
+          "knowsAbout": [
+            "DevOps", "CI/CD", "Docker", "Kubernetes", "AWS", "GCP",
+            "Terraform", "Ansible", "GitHub Actions", "Jenkins",
+            "Python", "Java", "Bash", "Infrastructure as Code",
+            "Apache Spark", "Big Data Analytics"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/tharusha-sachinthana-150773264/",
+            "https://github.com/TharushaSachinthana"
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "GitHub Foundations",
+              "credentialCategory": "certification",
+              "recognizedBy": { "@type": "Organization", "name": "GitHub" }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "GitHub Actions",
+              "credentialCategory": "certification",
+              "recognizedBy": { "@type": "Organization", "name": "GitHub" }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Docker Foundations Professional Certificate",
+              "credentialCategory": "certification",
+              "recognizedBy": { "@type": "Organization", "name": "Docker" }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "DevOps Professional Certificate",
+              "credentialCategory": "certification",
+              "recognizedBy": { "@type": "Organization", "name": "PagerDuty" }
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://tharusha-portfolio.vercel.app/#website",
+          "url": "https://tharusha-portfolio.vercel.app/",
+          "name": "Tharusha Sachinthana | DevOps Engineer Portfolio",
+          "description": "Portfolio of Tharusha Sachinthana – DevOps Engineer specializing in CI/CD, cloud infrastructure, and automation.",
+          "author": { "@id": "https://tharusha-portfolio.vercel.app/#person" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://tharusha-portfolio.vercel.app/#webpage",
+          "url": "https://tharusha-portfolio.vercel.app/",
+          "name": "Tharusha Sachinthana | DevOps Engineer Portfolio",
+          "isPartOf": { "@id": "https://tharusha-portfolio.vercel.app/#website" },
+          "about": { "@id": "https://tharusha-portfolio.vercel.app/#person" },
+          "description": "Explore the portfolio, projects, certifications, and experience of Tharusha Sachinthana, a DevOps Engineer."
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
