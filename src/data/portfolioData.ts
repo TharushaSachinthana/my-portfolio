@@ -110,7 +110,7 @@ export interface PortfolioData {
 // Default portfolio data based on your CV
 export const defaultPortfolioData: PortfolioData = {
     profile: {
-        name: 'Tharusha Thilakarathna',
+        name: 'Tharusha Sachinthana',
         title: 'DevOps Engineer | Cloud & Automation',
         subtitle: 'Welcome to my portfolio',
         bio: `Passionate about building reliable, scalable cloud infrastructure and streamlining 

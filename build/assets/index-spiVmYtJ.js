@@ -268,7 +268,7 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const b1=[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]],N1=se("x",b1),bn={profile:{name:"Tharusha Thilakarathna",title:"DevOps Engineer | Cloud & Automation",subtitle:"Welcome to my portfolio",bio:`Passionate about building reliable, scalable cloud infrastructure and streamlining 
+ */const b1=[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]],N1=se("x",b1),bn={profile:{name:"Tharusha Sachinthana",title:"DevOps Engineer | Cloud & Automation",subtitle:"Welcome to my portfolio",bio:`Passionate about building reliable, scalable cloud infrastructure and streamlining 
 development workflows through CI/CD automation. I specialize in containerization, 
 orchestration, and infrastructure as code to deliver robust DevOps solutions.`,profileImage:"/profile.png",location:"Chilaw, Sri Lanka",email:"thilakarathna.mkts@gmail.com",linkedin:"Tharusha Sachinthana",linkedinUrl:"https://www.linkedin.com/in/tharusha-sachinthana-150773264/",github:"TharushaSachinthana",githubUrl:"https://github.com/TharushaSachinthana"},about:{educationTitle:"Education & Background",educationDescription:`I'm currently pursuing my degree in Computer Engineering at 
 the University of Jaffna, where I've developed a strong 
