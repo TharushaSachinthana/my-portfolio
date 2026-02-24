@@ -35,6 +35,11 @@
   <!-- Theme -->
   <meta name="theme-color" content="#0f172a" />
 
+  <!-- Prerender hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
   <!-- Structured Data (JSON-LD) - Invisible to users, helps Google show rich results -->
   <script type="application/ld+json">
     {
@@ -125,6 +130,71 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Static SEO content for search engine crawlers -->
+  <!-- This content is hidden when JS loads but visible to crawlers that don't execute JS -->
+  <noscript>
+    <div
+      style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:sans-serif;color:#e8eaf6;background:#0a0e27;">
+      <h1>Tharusha Sachinthana | DevOps Engineer Portfolio</h1>
+      <p>Hi, I'm <strong>Tharusha Sachinthana Thilakarathna</strong> — a DevOps Engineer specializing in CI/CD
+        pipelines, cloud infrastructure (AWS, Azure, GCP), containerization (Docker, Kubernetes), and infrastructure as
+        code.</p>
+
+      <h2>About Me</h2>
+      <p>I'm currently pursuing my degree in Computer Engineering at the University of Jaffna, where I've developed a
+        strong foundation in software engineering, cloud computing, and DevOps practices. I'm currently working as a
+        Software Engineer Intern at Zebra Technologies, where I've gained hands-on experience in building and optimizing
+        CI/CD pipelines, containerizing applications with Docker, and managing cloud infrastructure.</p>
+
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>DevOps &amp; Cloud:</strong> GitHub Actions, Jenkins, GitLab CI, Docker, Kubernetes, Terraform,
+          Ansible, AWS, GCP, Prometheus, Datadog, CloudWatch</li>
+        <li><strong>Programming &amp; Scripting:</strong> Python, Java, Bash, PowerShell</li>
+        <li><strong>Databases:</strong> MySQL, PostgreSQL, MSSQL, PL/SQL</li>
+        <li><strong>Platforms &amp; Tools:</strong> Git, GitHub, Jira, Linux, Windows</li>
+        <li><strong>Data Engineering:</strong> Apache Spark, HDFS, BigQuery, Google Dataproc</li>
+      </ul>
+
+      <h2>Experience</h2>
+      <h3>Software Engineer Intern — Zebra Technologies</h3>
+      <p>Delivered CI/CD and deployment automation that boosted release speed. Built and maintained fully automated
+        CI/CD pipelines in GitHub Actions. Configured self-hosted runners on on-premises Windows and Ubuntu servers.
+        Automated deployments by pushing Docker images to JFrog Artifactory.</p>
+
+      <h2>Achievements</h2>
+      <ul>
+        <li><strong>IEEE Xtreme 18.0:</strong> Global Rank 109, Sri Lanka Rank 6</li>
+        <li><strong>Agni Xtreme Champions:</strong> Championship Winner</li>
+        <li><strong>ACES Coders V11.0:</strong> Top 10 in Sri Lanka</li>
+        <li><strong>Huawei ICT Competition:</strong> Top 10, Network Track</li>
+      </ul>
+
+      <h2>Certifications</h2>
+      <ul>
+        <li>GitHub Foundations — GitHub</li>
+        <li>GitHub Actions — GitHub</li>
+        <li>Docker Foundations Professional Certificate — Docker</li>
+        <li>DevOps Professional Certificate — PagerDuty</li>
+        <li>Kubernetes: Microservices</li>
+        <li>DevOps Foundations: Infrastructure as Code — LinkedIn</li>
+        <li>DevOps Foundations: Continuous Delivery/Continuous Integration — CompTIA</li>
+      </ul>
+
+      <h2>Projects</h2>
+      <h3>Scalable Distributed Machine Learning Framework for Healthcare IoT Analytics</h3>
+      <p>Architected and deployed a fault-tolerant, distributed big data pipeline on Google Cloud Platform (Dataproc) to
+        process massive-scale ECG sensor data. Technologies: GCP, Dataproc, Apache Spark, PySpark, BigQuery, Python,
+        Machine Learning, IoT.</p>
+
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:thilakarathna.mkts@gmail.com">thilakarathna.mkts@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/tharusha-sachinthana-150773264/">Tharusha Sachinthana</a></p>
+      <p>GitHub: <a href="https://github.com/TharushaSachinthana">TharushaSachinthana</a></p>
+      <p>Location: Chilaw, Sri Lanka</p>
+    </div>
+  </noscript>
 </body>
 
 </html>
