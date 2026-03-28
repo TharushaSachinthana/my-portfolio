@@ -306,6 +306,56 @@ To ensure the pipeline is always functional, a "Heartbeat" workflow runs daily a
                 'Watchtower Auto-Pulls & Restarts Containers',
             ],
         },
+        {
+            id: '3',
+            title: 'DevOps Pipeline Accelerator',
+            shortDescription: 'A production-grade CI/CD + DevSecOps + Monitoring stack demonstrating measurable improvements in deployment speed, security, reliability, and observability — all running locally at ZERO cost.',
+            fullDescription: `This project is a production-grade CI/CD, DevSecOps, and Monitoring stack demonstrating measurable improvements in deployment speed, security, reliability, and observability — all running locally at ZERO cost.
+
+The architecture involves a developer workflow that pushes code to a feature branch, triggering a comprehensive GitHub Actions CI pipeline. The CI pipeline performs rigorous static analysis (ESLint), unit and integration testing (Jest/Supertest), SonarQube code quality analysis, and Docker containerization. Crucially, strict DevSecOps gates are incorporated with Trivy vulnerability scanning catching issues at both the filesystem and image level before pushing to Docker Hub.
+
+On the continuous delivery side, ArgoCD implements a true GitOps strategy. It constantly watches the Kubernetes manifests repository (managed via Kustomize) and automatically syncs changes directly into a local Minikube cluster. The deployment leverages a Blue-Green strategy to ensure zero-downtime releases and provides instant rollback capabilities.
+
+Finally, the entire stack is highly observable via a Prometheus metrics collection daemon and Grafana dashboards capturing application request rates, latency, infrastructure health, and deployment success metrics, effectively reducing manual deployment and rollback times by 83% and 99% respectively.`,
+            technologies: [
+                'GitHub Actions',
+                'Docker',
+                'Kubernetes',
+                'Minikube',
+                'ArgoCD',
+                'SonarQube',
+                'Trivy',
+                'Prometheus',
+                'Grafana',
+                'Kustomize',
+                'Node.js',
+                'Jest',
+            ],
+            images: [
+                'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            ],
+            coverImage: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            githubUrl: 'https://github.com/TharushaSachinthana/Automatic-accelarator',
+            highlights: [
+                'ArgoCD & GitOps Integration: Automates continuous delivery by watching a repository and synchronizing K8s manifests directly into a Minikube cluster.',
+                'Blue-Green Deployment Pattern: Employs a zero-downtime release strategy where active traffic routes to "Blue" while "Green" is deployed safely alongside it for testing.',
+                'Immediate DevSecOps Feedback: Trivy and SonarQube run automatically on every CI execution, discovering vulnerabilities and code smells instantly.',
+                'Complete Observability Stack: Prometheus and Grafana dashboards monitor application metrics (latency, error rates) and trigger configured alert thresholds (Critical/Warning/Info).',
+                'Drastic Speed Improvement: Eliminated manual rollout steps to improve deployment speed by 83% (30m to ~5m) and rollback speed by 99% (instant routine).',
+                'Non-root container execution with no hardcoded secrets, utilizing purely GitHub & K8s Secrets.',
+            ],
+            architecture: [
+                'Push code changes / Commit to feature branch',
+                'CI Pipeline starts: Automated Linting (ESLint) and Testing (Jest)',
+                'Code Quality check via SonarQube static analysis',
+                'Containerization: Build multi-stage Docker image',
+                'Security Validation: Trivy filesystem & image scanning',
+                'Registry Push: Push to Docker Hub and update Kubernetes tags',
+                'CD Pipeline active: ArgoCD detects Git change automatically',
+                'Deployment Orchestration: ArgoCD syncs manifests natively',
+                'Traffic Switching: Kubernetes Blue-Green deployment with zero downtime',
+            ],
+        },
     ],
     achievements: [
         {
