@@ -54,6 +54,7 @@ export interface Project {
     reportUrl?: string;
     videoUrl?: string;
     highlights: string[];
+    architecture?: string[];
 }
 
 export interface Achievement {
@@ -251,6 +252,58 @@ The final results demonstrated that while vertical scaling offers raw speed for 
                 '30% Faster Inference: Achieved a 30.6% reduction in prediction latency using the distributed cluster compared to a vertically scaled server, validating the architecture for real-time monitoring use cases.',
                 'Infrastructure Troubleshooting: Successfully diagnosed and resolved complex distributed system errors including java.io.EOFException (split capabilities), RateLimitExceeded (API quotas), and SIGKILL (memory leaks).',
                 'Optimized Data Pipeline: Implemented a robust "staging" pattern for data ingestion, bypassing cluster network restrictions and local disk limits to securely onboard multi-gigabyte datasets.',
+            ],
+        },
+        {
+            id: '2',
+            title: 'Automate-CICD: Production-Grade Multi-Service Pipeline',
+            shortDescription:
+                'An industry-standard, multi-service CI/CD pipeline using GitHub Actions, Docker Hub, and Watchtower. A production-grade template for automating the full development lifecycle of a React/Node.js stack with 90%+ test coverage guardrails and auto-deployment.',
+            fullDescription: `This project implements an industry-standard, multi-service CI/CD pipeline using GitHub Actions, Docker Hub, and Watchtower. It serves as a production-grade template for automating the development lifecycle of a React/Node.js stack.
+
+The architecture consists of a React (Vite) frontend served via Nginx in a multi-stage Docker build, a Node.js (Express) backend REST API with a Jest/Supertest test suite, and an Nginx reverse proxy that routes traffic between frontend and backend services. All images are pushed to Docker Hub as the continuous registry.
+
+The pipeline follows a GitFlow-Lite strategy to ensure code quality and seamless deployments. Development happens on the test branch, Pull Requests from test to develop trigger linting, unit tests, and security scans (npm audit). Merging to develop automatically builds 3 Docker images (Frontend, Backend, Nginx), tags them with Semantic Versioning (MAJOR.MINOR.RUN_NUMBER) and latest, then pushes to Docker Hub. Watchtower running locally detects the new latest tag and automatically pulls updated images with zero manual effort.
+
+The pipeline includes a professional-grade Quality Assurance layer: every PR must meet a global coverage threshold of 90% across branches, functions, and lines. The Express app is refactored for proper unit testing using supertest, and coverage reports are automatically uploaded as GitHub workflow artifacts for visual review.
+
+To ensure the pipeline is always functional, a "Heartbeat" workflow runs daily at 09:00 UTC—making a chore commit to the test branch, opening an automated Pull Request to develop, and providing a merge opportunity to verify the entire build/push/pull cycle.`,
+            technologies: [
+                'GitHub Actions',
+                'Docker',
+                'Docker Hub',
+                'Watchtower',
+                'React',
+                'Vite',
+                'Node.js',
+                'Express',
+                'Nginx',
+                'Jest',
+                'Supertest',
+                'Semantic Versioning',
+            ],
+            images: [
+                '/cicd-pipeline-cover.png',
+            ],
+            coverImage: '/cicd-pipeline-cover.png',
+            githubUrl: 'https://github.com/TharushaSachinthana/Automate-CICD',
+            highlights: [
+                'GitFlow-Lite Strategy: Implemented a branch-based workflow (test → develop) with automated PR gates for linting, testing, and security scanning.',
+                '90%+ Coverage Guardrail: Enforced strict 90% threshold across branches, functions, and lines on every pull request to maintain code reliability.',
+                'Multi-Stage Docker Builds: Minimized image sizes and attack surfaces using multi-stage builds for the React frontend served via Nginx.',
+                'Automated Semantic Versioning: Docker images are auto-tagged with MAJOR.MINOR.RUN_NUMBER and latest for traceable, consistent releases.',
+                'Zero-Touch Deployment: Watchtower continuously monitors Docker Hub for new latest tags and auto-updates running containers without downtime.',
+                'Daily Heartbeat Automation: A scheduled workflow creates daily chore commits and PRs to verify the full pipeline cycle remains functional.',
+                'Security Best Practices: Secrets stored exclusively in GitHub Secrets, non-root container users, and npm audit scans on every PR.',
+            ],
+            architecture: [
+                'Development on test branch',
+                'Pull Request: test → develop',
+                'Automated Linting & Unit Tests',
+                'Security Scans (npm audit)',
+                'Build 3 Docker Images (Frontend, Backend, Nginx)',
+                'Tag with Semantic Versioning + Push to Docker Hub',
+                'Watchtower Auto-Pulls & Restarts Containers',
             ],
         },
     ],
