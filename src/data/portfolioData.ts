@@ -421,6 +421,39 @@ The pipeline includes high-accuracy pre-trained models for facial detection and 
                 'Custom Evaluation & Prediction Scripts for direct validations',
             ],
         },
+        {
+            id: '6',
+            title: 'RealStream: WebRTC Video Conferencing',
+            shortDescription: 'A secure and efficient WebRTC-based video conferencing platform supporting real-time video/audio communication and dynamic room management.',
+            fullDescription: `RealStream is a secure and efficient WebRTC-based video conferencing platform that supports real-time video/audio communication, alongside integrated text chat and dynamic room management capabilities. With a focus on simplicity and accessibility, it provides seamless connectivity for users across various domains.
+            
+The platform employs a robust client-server model. The frontend handles the user interface and intricate WebRTC functionalities for peer-to-peer media streams, while the Node.js backend manages WebSockets signaling, user sessions, and static file serving to ensure high-quality, low-latency exchanges.`,
+            technologies: [
+                'WebRTC',
+                'Socket.IO',
+                'Node.js',
+                'Express.js',
+                'JavaScript',
+                'HTML/CSS',
+                'STUN/TURN',
+            ],
+            images: [
+                'https://images.unsplash.com/photo-1573164713988-8665fc963095?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            ],
+            coverImage: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            githubUrl: 'https://github.com/TharushaSachinthana/RealStream',
+            highlights: [
+                'Peer-to-Peer Communication: Integrated WebRTC for high-quality, low-latency real-time video and audio streams.',
+                'Real-Time Signaling: Utilized Socket.IO for real-time signaling and data exchange establishing seamless WebSocket connections.',
+                'NAT Traversal: Successfully integrated STUN servers to resolve NAT traversal issues and maintain secure HTTPS connections.',
+                'Dynamic Room Management: Enabled users to create and join custom rooms effortlessly, complementing the video calls with integrated text chat.',
+            ],
+            architecture: [
+                'Frontend (Client): Handles responsive UI and WebRTC media streams',
+                'Backend (Server): Express.js and Node.js managing WebSocket signaling and sessions',
+                'Data Flow: Registration -> WebSocket Connection -> WebRTC Peer-to-Peer Stream',
+            ],
+        },
     ],
     achievements: [
         {
