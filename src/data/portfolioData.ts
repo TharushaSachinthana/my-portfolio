@@ -389,6 +389,38 @@ The system streamlines the exam registration process, featuring secure user auth
                 'Microsoft.AspNetCore.Authentication.MicrosoftAccount for Azure OAuth',
             ],
         },
+        {
+            id: '5',
+            title: 'OmniFace: Automated Face Detection & Profile Classification',
+            shortDescription: 'An advanced multi-attribute classification system leveraging deep learning to detect and classify demographic attributes such as age, gender, and ethnicity.',
+            fullDescription: `OmniFace is an advanced multi-attribute classification system leveraging deep learning to detect and classify faces based on demographic attributes such as age, gender, and ethnicity. It combines state-of-the-art computer vision techniques with a robust custom neural network architecture.
+            
+The pipeline includes high-accuracy pre-trained models for facial detection and a unified multi-output neural network structure which effectively extracts shared feature layers to simultaneously output predicting parameters. This approach greatly improves efficiency across custom datasets processing.`,
+            technologies: [
+                'Python',
+                'PyTorch / TensorFlow',
+                'Computer Vision',
+                'Deep Learning',
+                'NVIDIA GPUs / CUDA',
+                'Jupyter Notebooks',
+            ],
+            images: [
+                'https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            ],
+            coverImage: 'https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            githubUrl: 'https://github.com/TharushaSachinthana/OmniFace',
+            highlights: [
+                'Multi-Output Architecture: Unified neural network predicting multiple outputs (age, gender, ethnicity) utilizing shared feature extraction layers.',
+                'High-Accuracy Detection: Leveraged complex pre-trained models for exact face detection across rigorous datasets.',
+                'Efficient Data Pipeline: Simplified preprocessing bounds processing for heavy sources like the UTKFace and WIDER Face datasets.',
+                'Custom Inference Adaptation: Easy-to-use custom image predictors adaptable for different model inference scenarios.',
+            ],
+            architecture: [
+                'Modular Multi-Attribute Neural Architecture',
+                'Automated Data Preprocessing and Bounding Box Generation Pipeline',
+                'Custom Evaluation & Prediction Scripts for direct validations',
+            ],
+        },
     ],
     achievements: [
         {
