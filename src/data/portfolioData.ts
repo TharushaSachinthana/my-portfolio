@@ -356,6 +356,39 @@ Finally, the entire stack is highly observable via a Prometheus metrics collecti
                 'Traffic Switching: Kubernetes Blue-Green deployment with zero downtime',
             ],
         },
+        {
+            id: '4',
+            title: 'Exam Registration System UoJ',
+            shortDescription: 'An exam registration system made specifically for the Engineering Faculty of University of Jaffna with specialized business logic.',
+            fullDescription: `This is an Exam registration system made specifically for the Engineering Faculty of University of Jaffna with the business logic suited and optimized for it.
+
+The system streamlines the exam registration process, featuring secure user authentication via Microsoft Azure Active Directory, a robust MySQL backend, and the generation of anti-forgery QR codes for physical exam registration forms.`,
+            technologies: [
+                'C#',
+                'ASP .NET',
+                'Blazor .NET',
+                'MySQL',
+                'HTML',
+                'CSS',
+                'Azure App Registration',
+            ],
+            images: [
+                'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            ],
+            coverImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            githubUrl: 'https://github.com/TharushaSachinthana/ExamRegistrationUoJ_',
+            highlights: [
+                'Custom Business Logic: Features and logic tailored specifically for the requirements of the Engineering Faculty of University of Jaffna.',
+                'Microsoft Authentication: Integrated Microsoft account login via Azure App Registration for improved security.',
+                'QR Code Anti-forgery: Generated dynamic anti-forgery QR codes for exam registration forms using System.Drawing.Common.',
+                'Database Initialization: Streamlined setup with automated initial database schema and linking to specific administrator tables.',
+            ],
+            architecture: [
+                'Built with ASP .NET and Blazor .NET',
+                'MySqlConnector for direct database interactions',
+                'Microsoft.AspNetCore.Authentication.MicrosoftAccount for Azure OAuth',
+            ],
+        },
     ],
     achievements: [
         {
