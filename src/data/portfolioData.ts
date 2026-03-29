@@ -454,6 +454,38 @@ The platform employs a robust client-server model. The frontend handles the user
                 'Data Flow: Registration -> WebSocket Connection -> WebRTC Peer-to-Peer Stream',
             ],
         },
+        {
+            id: '7',
+            title: 'Sinhala Spelling & Grammar Corrector',
+            shortDescription: 'A robust system for spelling and grammar correction in the Sinhala language, evaluating multiple approaches including Edit Distance and Transformer models.',
+            fullDescription: `This project focuses on building a robust system for spelling and grammar correction exclusively tailored for the Sinhala language. It incorporates multiple processing methods and evaluations to identify the most accurate linguistic correction approaches.
+
+Currently, the Spell Checker is fully developed utilizing an Edit Distance-Based approach and has been systematically evaluated against models from SymSpell and pre-trained transformer-based models (via Hugging Face). While transformer models prove context-aware, the Edit Distance approach exhibited higher adaptability and accuracy for out-of-vocabulary Sinhala terminology. A dedicated grammar checker leveraging rule-based methods and pre-trained language models is progressively being integrated.`,
+            technologies: [
+                'Python 3.8+',
+                'Transformers (Hugging Face)',
+                'SymSpellPy',
+                'NumPy',
+                'Pandas',
+                'Machine Learning'
+            ],
+            images: [
+                'https://images.unsplash.com/photo-1555448248-2571daf6344b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            ],
+            coverImage: 'https://images.unsplash.com/photo-1555448248-2571daf6344b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1200',
+            githubUrl: 'https://github.com/TharushaSachinthana/SpellingGrammarCorrectorSinhala',
+            highlights: [
+                'Edit Distance-Based Spell Checker: Developed an Edit Distance model that demonstrated high accuracy and flexibility, particularly for small custom datasets in Sinhala.',
+                'Model Benchmarking: Conducted detailed accuracy comparisons against SymSpell and Hugging Face transformer models to quantify effectiveness on Sinhala vocabulary.',
+                'Dataset Curation: Utilized structured datasets of corrected Sinhala words ensuring high testing standard validity.',
+                'Modular Pipeline: Project is structurally divided into explicit data, model state, testing scripts, and evaluation notebooks making future improvements manageable.',
+            ],
+            architecture: [
+                'Edit Distance algorithm primarily used for baseline spell correction',
+                'SymSpell evaluated for high-speed dictionary-based lookup',
+                'Hugging Face Transformers tested for context-aware inference',
+            ],
+        },
     ],
     achievements: [
         {
