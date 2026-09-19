@@ -197,7 +197,7 @@ learning and staying updated with the latest DevOps tools and cloud technologies
             id: '1',
             title: 'Software Engineer Intern',
             company: 'Zebra Technologies',
-            location: 'Nawala, Srilanaka - hybrid',
+            location: 'Nawala, Sri Lanka - Hybrid',
             period: 'February 2025 – August 2025',
             description: 'Delivered CI/CD and deployment automation that boosted release speed',
             highlights: [

@@ -205,7 +205,7 @@ export function AdminPanel() {
                                 animate={{ x: '384px', opacity: 1 }}
                                 exit={{ x: '-100%', opacity: 0 }}
                                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                                className="fixed left-0 top-0 h-full w-[500px] bg-background/90 backdrop-blur-xl border-r border-border z-45 overflow-y-auto"
+                                className="fixed left-0 top-0 h-full w-[500px] bg-background/90 backdrop-blur-xl border-r border-border z-40 overflow-y-auto"
                             >
                                 <div className="p-6">
                                     <h3 className="text-xl font-semibold mb-4 capitalize">{activeSection} Editor</h3>
@@ -220,28 +220,9 @@ export function AdminPanel() {
     );
 }
 
-// Floating admin button for easy access
+// Admin button is intentionally hidden from public visitors.
+// Use Ctrl+Shift+A to toggle admin mode.
 export function AdminButton() {
-    const { isAdminMode, setIsAdminMode } = useAdmin();
-
-    return (
-        <AnimatePresence>
-            {!isAdminMode && (
-                <motion.button
-                    key="admin-button"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setIsAdminMode(true)}
-                    className="fixed bottom-6 right-6 p-4 rounded-full bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/20 z-30"
-                    title="Open Admin Panel (Ctrl+Shift+A)"
-                >
-                    <Settings className="w-6 h-6 text-white" />
-                </motion.button>
-            )}
-        </AnimatePresence>
-    );
+    return null;
 }
 
