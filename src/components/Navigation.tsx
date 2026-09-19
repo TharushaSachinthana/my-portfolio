@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Download, Menu, X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Download, Menu, X, CloudRain, Snowflake, Cloud, CloudLightning, Flower2, Sun, Star, Waves } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useAdmin } from './admin/AdminContext';
+import { useWeather } from './effects/WeatherContext';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -19,8 +20,27 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [weatherMenuOpen, setWeatherMenuOpen] = useState(false);
   const { data } = useAdmin();
   const { cvFiles } = data;
+  const { weather, setWeather } = useWeather();
+  const weatherMenuRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (weatherMenuRef.current && !weatherMenuRef.current.contains(e.target as Node)) {
+        setWeatherMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,6 +142,63 @@ export function Navigation() {
               <span className="hidden sm:inline">Download CV</span>
               <span className="sm:hidden">CV</span>
             </button>
+
+            {/* Weather Dropdown */}
+            {mounted && (
+              <div className="relative" ref={weatherMenuRef}>
+                <button
+                  onClick={() => setWeatherMenuOpen(!weatherMenuOpen)}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center"
+                  aria-label="Toggle weather"
+                >
+                  {weather === 'rain' ? <CloudRain className="w-5 h-5 text-foreground" /> : 
+                   weather === 'snow' ? <Snowflake className="w-5 h-5 text-foreground" /> :
+                   weather === 'storm' ? <CloudLightning className="w-5 h-5 text-foreground" /> :
+                   weather === 'sakura' ? <Flower2 className="w-5 h-5 text-foreground" /> :
+                   weather === 'desert' ? <Sun className="w-5 h-5 text-foreground" /> :
+                   weather === 'meteor' ? <Star className="w-5 h-5 text-foreground" /> :
+                   weather === 'underwater' ? <Waves className="w-5 h-5 text-foreground" /> :
+                   <Cloud className="w-5 h-5 text-foreground" />}
+                </button>
+                <AnimatePresence>
+                  {weatherMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 mt-2 w-40 bg-popover backdrop-blur-xl border border-border rounded-xl shadow-lg overflow-hidden z-50 flex flex-col"
+                    >
+                      <button onClick={() => { setWeather('clear'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'clear' ? 'text-primary' : 'text-foreground'}`}>
+                        <Cloud className="w-4 h-4" /> Clear
+                      </button>
+                      <button onClick={() => { setWeather('rain'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'rain' ? 'text-primary' : 'text-foreground'}`}>
+                        <CloudRain className="w-4 h-4" /> Rain
+                      </button>
+                      <button onClick={() => { setWeather('snow'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'snow' ? 'text-primary' : 'text-foreground'}`}>
+                        <Snowflake className="w-4 h-4" /> Snow
+                      </button>
+                      <button onClick={() => { setWeather('storm'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'storm' ? 'text-primary' : 'text-foreground'}`}>
+                        <CloudLightning className="w-4 h-4" /> Storm
+                      </button>
+                      <button onClick={() => { setWeather('sakura'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'sakura' ? 'text-primary' : 'text-foreground'}`}>
+                        <Flower2 className="w-4 h-4" /> Sakura
+                      </button>
+                      <button onClick={() => { setWeather('desert'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'desert' ? 'text-primary' : 'text-foreground'}`}>
+                        <Sun className="w-4 h-4" /> Desert
+                      </button>
+                      <button onClick={() => { setWeather('meteor'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'meteor' ? 'text-primary' : 'text-foreground'}`}>
+                        <Star className="w-4 h-4" /> Meteor Shower
+                      </button>
+                      <button onClick={() => { setWeather('underwater'); setWeatherMenuOpen(false); }} className={`flex items-center gap-2 px-4 py-2.5 text-sm text-left hover:bg-white/5 transition-colors ${weather === 'underwater' ? 'text-primary' : 'text-foreground'}`}>
+                        <Waves className="w-4 h-4" /> Tsunami
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+
 
             {/* Mobile hamburger button */}
             <button

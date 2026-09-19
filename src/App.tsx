@@ -12,13 +12,16 @@ import { Contact } from './components/Contact';
 import { ProjectDetailsPage } from './components/ProjectDetailsPage';
 import { AdminProvider } from './components/admin/AdminContext';
 import { AdminPanel, AdminButton } from './components/admin/AdminPanel';
+import { WeatherProvider } from './components/effects/WeatherContext';
+import { WeatherOverlay } from './components/effects/WeatherOverlay';
 import './styles/globals.css';
 
 function HomePage() {
   return (
     <div className="min-h-screen relative">
       {/* Animated background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <WeatherOverlay />
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
@@ -54,18 +57,20 @@ function HomePage() {
 
 function App() {
   return (
-    <AdminProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/project/:id" element={<ProjectDetailsPage />} />
-        </Routes>
+    <WeatherProvider>
+      <AdminProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/project/:id" element={<ProjectDetailsPage />} />
+          </Routes>
 
-        {/* Admin Components */}
-        <AdminPanel />
-        <AdminButton />
-      </Router>
-    </AdminProvider>
+          {/* Admin Components */}
+          <AdminPanel />
+          <AdminButton />
+        </Router>
+      </AdminProvider>
+    </WeatherProvider>
   );
 }
 

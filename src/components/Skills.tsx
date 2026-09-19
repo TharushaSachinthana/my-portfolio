@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { useRef } from 'react';
 import { useInView } from '../hooks/useInView';
@@ -30,22 +31,35 @@ export function Skills() {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12 rounded-full"></div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((category, categoryIndex) => {
               const IconComponent = iconMap[category.icon] || Code;
+              const isFeatured = categoryIndex === 0 || categoryIndex === 3; // Feature a couple of items to make it look like a true Bento box
+
               return (
                 <motion.div
                   key={category.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                  className="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform"
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
+                  transition={{ duration: 0.6, delay: categoryIndex * 0.12 }}
+                  className={`glass-card p-6 rounded-2xl hover:scale-[1.02] transition-all group flex flex-col h-full ${
+                    isFeatured ? 'md:col-span-2' : 'col-span-1'
+                  }`}
+                  style={{
+                    border: '1px solid rgba(148, 163, 184, 0.1)',
+                  }}
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color}`}>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} group-hover:scale-110 transition-transform`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl">{category.title}</h3>
+                    <div className="flex-1">
+                      <h3 className="text-xl">{category.title}</h3>
+                    </div>
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-muted-foreground border border-white/10">
+                      {category.skills.length} skills
+                    </span>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
@@ -58,7 +72,7 @@ export function Skills() {
                           duration: 0.3,
                           delay: categoryIndex * 0.1 + skillIndex * 0.05,
                         }}
-                        className="px-4 py-2 bg-gradient-to-br from-white/5 to-white/10 rounded-full text-sm text-foreground border border-white/10 hover:border-primary/50 hover:bg-white/15 transition-all cursor-default"
+                        className="skill-chip px-4 py-2 bg-gradient-to-br from-white/5 to-white/10 rounded-full text-sm text-foreground border border-white/10 cursor-default"
                       >
                         {skill}
                       </motion.span>

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Download, Eye, Award, Trophy, Briefcase } from 'lucide-react';
 import { useAdmin } from './admin/AdminContext';
+import { TypewriterText } from './effects/TypewriterText';
 
 export function Hero() {
   const { data } = useAdmin();
@@ -10,6 +11,14 @@ export function Hero() {
     { icon: Trophy, label: 'Global Rank 109', subtitle: 'IEEE Xtreme 18.0' },
     { icon: Award, label: 'Top 10', subtitle: 'Huawei ICT Competition' },
     { icon: Briefcase, label: 'DevOps + Cloud', subtitle: 'Engineer' },
+  ];
+
+  // Extract role words from profile title for typewriter
+  const roleWords = [
+    'DevOps Engineer',
+    'Cloud Architect',
+    'Automation Specialist',
+    'CI/CD Expert',
   ];
 
   const handleDownloadCV = () => {
@@ -48,8 +57,14 @@ export function Hero() {
               Hi, I&apos;m {profile.name}
             </h1>
 
-            <h2 className="text-2xl lg:text-3xl text-foreground/90 mb-6">
-              {profile.title}
+            {/* Typewriter role title */}
+            <h2 className="text-2xl lg:text-3xl text-foreground/90 mb-6 min-h-[2.5rem]">
+              <TypewriterText
+                words={roleWords}
+                typingSpeed={70}
+                deletingSpeed={40}
+                pauseDuration={2500}
+              />
             </h2>
 
             <p className="text-muted-foreground mb-8 max-w-xl">
