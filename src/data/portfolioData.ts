@@ -111,14 +111,12 @@ export interface PortfolioData {
 // Default portfolio data based on your CV
 export const defaultPortfolioData: PortfolioData = {
     profile: {
-        name: 'Tharusha Sachinthana',
+        name: 'Tharusha Thilakarathna',
         title: 'DevOps Engineer | Cloud & Automation',
         subtitle: 'Welcome to my portfolio',
-        bio: `Passionate about building reliable, scalable cloud infrastructure and streamlining 
-development workflows through CI/CD automation. I specialize in containerization, 
-orchestration, and infrastructure as code to deliver robust DevOps solutions.`,
+        bio: `DevOps Engineer with 1+ years of professional experience in infrastructure operations, CI/CD automation, cloud technologies, and deployment automation. Passionate about building reliable, scalable cloud infrastructure and streamlining development workflows. I specialize in containerization, orchestration, and infrastructure as code to deliver robust DevOps solutions.`,
         profileImage: '/profile.png',
-        location: 'Chilaw, Sri Lanka',
+        location: 'Colombo, Sri Lanka',
         email: 'thilakarathna.mkts@gmail.com',
         linkedin: 'Tharusha Sachinthana',
         linkedinUrl: 'https://www.linkedin.com/in/tharusha-sachinthana-150773264/',
@@ -131,7 +129,7 @@ orchestration, and infrastructure as code to deliver robust DevOps solutions.`,
 the University of Jaffna, where I've developed a strong 
 foundation in software engineering, cloud computing, and DevOps practices.`,
         professionalTitle: 'Professional Experience',
-        professionalDescription: `I'm currently working as a Software Engineer Intern at 
+        professionalDescription: `I'm currently working as an Infrastructure Engineer at HCLTech, and previously worked as a Software Engineer Intern at 
 Zebra Technologies, where I've gained hands-on experience 
 in building and optimizing CI/CD pipelines, containerizing applications with Docker, and managing 
 cloud infrastructure.`,
@@ -193,6 +191,18 @@ learning and staying updated with the latest DevOps tools and cloud technologies
         },
     ],
     experiences: [
+        {
+            id: '2',
+            title: 'Infrastructure Engineer',
+            company: 'HCLTech',
+            location: 'Colombo, Sri Lanka',
+            period: 'Jan 2026 – Present',
+            description: 'Support enterprise Microsoft Intune and endpoint management operations.',
+            highlights: [
+                'Support enterprise Microsoft Intune and endpoint management operations, troubleshooting device, application, policy, compliance, and management-related issues.',
+                'Designed and developed a Microsoft Graph-based Intune Certificate and Token Expiry Monitoring Platform to proactively identify expiration risks across critical Intune management assets.'
+            ],
+        },
         {
             id: '1',
             title: 'Software Engineer Intern',
@@ -486,6 +496,23 @@ Currently, the Spell Checker is fully developed utilizing an Edit Distance-Based
                 'Hugging Face Transformers tested for context-aware inference',
             ],
         },
+        {
+            id: '8',
+            title: 'Intune Expiry Monitoring Platform',
+            shortDescription: 'A Microsoft Graph based platform to monitor critical Intune certificate and token expirations with automated alerting.',
+            fullDescription: `Developed a Microsoft Graph based platform to monitor critical Intune certificate and token expirations.\nAutomated expiry detection using configurable health thresholds and alerting workflows.\nIntegrated Email, Microsoft Teams, and ServiceNow alerting for proactive incident response.`,
+            technologies: [
+                'Microsoft Graph API',
+                'Microsoft Intune',
+                'ServiceNow'
+            ],
+            images: [],
+            highlights: [
+                'Developed a Microsoft Graph based platform to monitor critical Intune certificate and token expirations.',
+                'Automated expiry detection using configurable health thresholds and alerting workflows.',
+                'Integrated Email, Microsoft Teams, and ServiceNow alerting for proactive incident response.'
+            ],
+        },
     ],
     achievements: [
         {
@@ -581,6 +608,30 @@ Currently, the Spell Checker is fully developed utilizing an Edit Distance-Based
             date: '2024 April',
             link: 'https://www.linkedin.com/learning/certificates/94c58fb4f701b56250f76c6cd3ad3fc59448598dacb37c422f127336ab0f71ac?accountId=0&u=0&success=true&authUUID=5%2BGUuAWFQIuXqOW19w9IPA%3D%3D',
             skills: ['Kubernetes'],
+        },
+        {
+            id: '8',
+            title: 'AWS Certified AI Practitioner',
+            issuer: 'AWS',
+            date: '2026 August',
+            link: '#',
+            skills: ['AWS', 'AI'],
+        },
+        {
+            id: '9',
+            title: 'AWS Certified Cloud Practitioner',
+            issuer: 'AWS',
+            date: '2026 September',
+            link: '#',
+            skills: ['AWS', 'Cloud Computing'],
+        },
+        {
+            id: '10',
+            title: 'Redis Certified Associate: Cloud Operator',
+            issuer: 'Redis',
+            date: '2026 September',
+            link: '#',
+            skills: ['Redis', 'Cloud Operations'],
         },
     ],
     articles: [
