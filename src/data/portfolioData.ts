@@ -671,9 +671,9 @@ Currently, the Spell Checker is fully developed utilizing an Edit Distance-Based
     cvFiles: [
         {
             id: '1',
-            name: 'M.K.T.S.THILAKARATHNA-CV.pdf',
+            name: 'M.K.T.S.THILAKARATHNA-CV-v2.pdf',
             label: 'Main CV',
-            url: '/M.K.T.S.THILAKARATHNA-CV.pdf',
+            url: '/M.K.T.S.THILAKARATHNA-CV-v2.pdf',
             isActive: true,
         },
     ],
