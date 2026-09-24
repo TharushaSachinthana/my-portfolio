@@ -125,8 +125,8 @@ export const defaultPortfolioData: PortfolioData = {
     },
     about: {
         educationTitle: 'Education & Background',
-        educationDescription: `I'm currently pursuing my degree in Computer Engineering at 
-the University of Jaffna, where I've developed a strong 
+        educationDescription: `I hold a BSc. Engineering (Hons.) in Computer Engineering from 
+the University of Jaffna, where I developed a strong 
 foundation in software engineering, cloud computing, and DevOps practices.`,
         professionalTitle: 'Professional Experience',
         professionalDescription: `I'm currently working as an Infrastructure Engineer at HCLTech, and previously worked as a Software Engineer Intern at 
